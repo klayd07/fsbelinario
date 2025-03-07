@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ language.language_code }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ head_title|safe_join(' | ') }}</title>
+  {{ head }}
+  {{ styles }}
+  {{ scripts }}
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+        {% if page.header %}
+            {{ page.header }}  {# This will load blocks assigned to the "header" region #}
+        {% else %}
+            <p>No blocks found in header region.</p>
+        {% endif %}
+    </div>
+  </header>
+
+  <main>
+    {% if page.hero %}
+  <section class="hero">
+    {{ page.hero|raw }} {# Background image will be added via a block #}
+    <div class="hero-content">
+      <h1>GET STARTED WORK WITH US</h1>
+      <p>Your trusted partner in accounting and financial services.</p>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+  </section>
+{% endif %}
+
+
+    <div class="content">
+      {{ page.content }}
+    </div>
+  </main>
+
+  <footer>
+    {% if page.footer %}
+      {{ page.footer }}
+    {% endif %}
+  </footer>
+
+  {{ page.scripts }}
+
+</body>
+</html>

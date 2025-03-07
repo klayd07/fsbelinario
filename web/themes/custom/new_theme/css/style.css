@@ -1,0 +1,141 @@
+/* Header Container */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: white;
+}
+
+/* Logo */
+#block-new-theme-sitebranding img {
+  max-height: 60px; /* Adjust as needed */
+  width: auto;
+  background-color: #fff;
+}
+
+/* Navigation */
+#block-new-theme-main-menu {
+  flex-grow: 1;
+  text-align: right;
+  
+}
+
+#block-new-theme-main-menu ul.menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#block-new-theme-main-menu ul.menu li {
+  margin-right: 20px;
+}
+
+#block-new-theme-main-menu ul.menu li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #730277;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+#block-new-theme-main-menu ul.menu li a:hover {
+  color: #f10f07;
+}
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+ 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align text to the left */
+  padding-left: 5%; /* Space from the left */
+}
+
+/* Hero Content */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 800px; /* Adjust height as needed */
+  background-image: url('/belinario/web/sites/default/files/inline-images/banner_new3_0.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero .region--hero {
+  display: none; /* Hide the inline image block since we're using CSS for the background */
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 10%; /* Adjust to your preference */
+  transform: translateY(-50%);
+  color: #fff; /* Adjust text color for better visibility */
+  max-width: 500px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-content .btn {
+  display: inline-block;
+  background-color: #a912e6; /* Adjust color */
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.about-content {
+  width: 50%;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.about-features .views-row {
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.about-features .views-row:nth-child(1) { background-color: #d93025; } /* Red */
+.about-features .views-row:nth-child(2) { background-color: #1e88e5; } /* Blue */
+.about-features .views-row:nth-child(3) { background-color: #212529; } /* Dark */
+.about-features .views-row:nth-child(4) { background-color: #17a2b8; } /* Teal */
+
+.read-more {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8a2be2;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+

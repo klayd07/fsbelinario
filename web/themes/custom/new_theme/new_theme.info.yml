@@ -1,0 +1,14 @@
+name: 'New Theme'
+type: theme
+description: 'A custom Drupal theme'
+core_version_requirement: ^10
+base theme: olivero
+package: Custom
+libraries:
+  - new_theme/global-styling
+regions:
+  header: 'Header'
+  hero: 'Hero Section'
+  content: 'Content'
+  footer: 'Footer'
+  
