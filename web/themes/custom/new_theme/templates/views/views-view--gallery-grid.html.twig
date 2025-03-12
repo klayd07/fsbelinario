@@ -1,0 +1,23 @@
+<section class="gallery-section">
+    <div class="max-w-7xl mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {% for row in view.result %}
+                {% set entity = row._entity %}
+                {% if entity and entity.field_gallery_images.entity %}
+                    <div class="text-center">
+                        <a href="{{ path('view.gallery_item.page_1', {'arg_0': entity.id()}) }}">
+                            <img src="{{ file_url(entity.field_gallery_images.entity.uri.value) }}" 
+                                alt="{{ entity.label }}" 
+                                class="w-full h-80 object-cover rounded-xl">
+                            <p class="mt-3 text-2xl font-bold text-purple-700">
+                                {{ entity.label }}
+                            </p>
+                        </a>
+                    </div>
+                {% else %}
+                    <p class="text-center text-gray-500">No image available</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

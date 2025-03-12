@@ -1,0 +1,17 @@
+<section class="banner-section">
+  <div class="relative h-[250px] flex items-center justify-center overflow-hidden">
+    <!-- Background image -->
+    {% if content.field_bg[0] is not empty %}
+      {% set image_uri = content.field_bg[0]['#item'].entity.uri.value %}
+        <img src="{{ file_url(image_uri) }}" class="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110">
+    {% endif %}
+
+    <!-- Purple overlay -->
+    <div class="absolute inset-0 bg-[#AD0AFF] bg-opacity-60"></div>  
+
+    <!-- Text -->
+    <h1 class="relative text-white text-4xl font-extrabold">
+      {{ content.field_title }}
+    </h1>
+  </div>
+</section>

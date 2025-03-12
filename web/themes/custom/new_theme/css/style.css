@@ -139,3 +139,260 @@
   font-weight: bold;
 }
 
+.footer-section {
+  margin: 0 !important;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: white;
+}
+
+.footer-section .content.field{
+  display: inline;
+}
+
+.footer-section ul li {
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+  gap: 8px; /* Adjust the gap between the icon and the text */
+}
+
+.footer-section ul li i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Adjust icon size if needed */
+  color: #fff; /* Ensure icon color matches the design */
+}
+
+.footer-section .field {
+  display: inline-block;
+}
+
+.banner-section .relative {
+  position: relative;
+}
+
+.banner-section .height-250 {
+  height: 250px;
+}
+
+.banner-section .flex {
+  display: flex;
+}
+
+.banner-section .items-center {
+  align-items: center;
+}
+
+.banner-section .justify-center {
+  justify-content: center;
+}
+
+.banner-section .overflow-hidden {
+  overflow: hidden;
+}
+
+.banner-section .absolute {
+  position: absolute;
+}
+
+.banner-section .inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.banner-section .w-full {
+    width: 100%;
+}
+
+.banner-section .h-full {
+    height: 100%;
+}
+
+.banner-section .object-cover {
+    object-fit: cover;
+}
+
+.banner-section .brightness-110 {
+    filter: brightness(110%);
+}
+
+.banner-section .contrast-110 {
+    filter: contrast(110%);
+}
+
+.banner-section .bg-ad0aff {
+    background-color: #AD0AFF;
+}
+
+.banner-section .bg-opacity-60 {
+    background-color: rgba(173, 10, 255, 0.6);
+}
+
+.banner-section .text-white {
+    color: #fff;
+}
+
+.banner-section .text-4xl {
+    font-size: 2.25rem; /* 36px */
+}
+
+.banner-section .font-extrabold {
+    font-weight: 800;
+}
+
+/* Gallery Section */
+.gallery-section .relative {
+    position: relative;
+}
+
+.gallery-section .height-250 {
+    height: 250px;
+}
+
+.gallery-section .flex {
+    display: flex;
+}
+
+.gallery-section .items-center {
+    align-items: center;
+}
+
+.gallery-section .justify-center {
+    justify-content: center;
+}
+
+.gallery-section .overflow-hidden {
+    overflow: hidden;
+}
+
+/* Background image */
+.gallery-section .absolute {
+    position: absolute;
+}
+
+.gallery-section .inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.gallery-section .w-full {
+    width: 100%;
+}
+
+.gallery-section .h-full {
+    height: 100%;
+}
+
+.gallery-section .object-cover {
+    object-fit: cover;
+}
+
+/* Purple overlay */
+.gallery-section .bg-ad0aff {
+    background-color: #AD0AFF;
+}
+
+.gallery-section .bg-opacity-60 {
+    background-color: rgba(173, 10, 255, 0.6);
+}
+
+/* Text */
+.gallery-section .text-white {
+    color: #fff;
+}
+
+.gallery-section .text-4xl {
+    font-size: 2.25rem; /* 36px */
+}
+
+.gallery-section .font-extrabold {
+    font-weight: 800;
+}
+
+/* Main content */
+.gallery-section .max-w-7xl {
+    max-width: 80rem; /* 1280px */
+}
+
+.gallery-section .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-section .px-4 {
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
+}
+
+.gallery-section .py-10 {
+    padding-top: 2.5rem; /* 40px */
+    padding-bottom: 2.5rem; /* 40px */
+}
+
+.gallery-section .grid {
+    display: grid;
+}
+
+.gallery-section .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.gallery-section .sm\:grid-cols-2 {
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.gallery-section .md\:grid-cols-3 {
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.gallery-section .gap-8 {
+    gap: 2rem; /* 32px */
+}
+
+/* Gallery items */
+.gallery-section .text-center {
+    text-align: center;
+}
+
+.gallery-section .w-full {
+    width: 100%;
+}
+
+.gallery-section .h-80 {
+    height: 20rem; /* 320px */
+}
+
+.gallery-section .object-cover {
+    object-fit: cover;
+}
+
+.gallery-section .rounded-xl {
+    border-radius: 0.75rem; /* 12px */
+}
+
+.gallery-section .mt-3 {
+    margin-top: 0.75rem; /* 12px */
+}
+
+.gallery-section .text-2xl {
+    font-size: 1.5rem; /* 24px */
+}
+
+.gallery-section .font-bold {
+    font-weight: 700;
+}
+
+.gallery-section .text-purple-700 {
+    color: #6b21a8;
+}
