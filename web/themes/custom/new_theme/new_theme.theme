@@ -1,0 +1,16 @@
+<?php
+use Drupal\webform\Entity\Webform;
+
+function new_theme_preprocess_node(&$variables) {
+  $webform_id = 'contact_us';
+  $webform = Webform::load($webform_id);
+
+  if ($webform) {
+    $variables['contact_us_form'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('webform')
+      ->view($webform);
+  }
+}
+
+
+?>
