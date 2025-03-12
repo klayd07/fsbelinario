@@ -1,0 +1,20 @@
+<section class="gallery-section">
+    <div class="max-w-7xl mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                        {{ dump(entity) }} {# Debug entity structure #}
+            {% for row in view.result %}
+                {% set entity = row._entity %}
+                    <div class="text-center">
+                        {% if entity.field_gallery_image is not empty%}
+                        <img src="{{ file_url(entity.field_gallery_image.entity.uri.value) }}" 
+                             alt="{{ file_url(entity.field_gallery_image.entity.uri.value) }}" 
+                             class="w-full h-80 object-cover rounded-xl">
+                        <p class="mt-3 text-2xl font-bold text-purple-700">
+                            {{ entity.label }}
+                        </p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

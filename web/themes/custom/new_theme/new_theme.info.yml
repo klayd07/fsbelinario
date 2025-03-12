@@ -8,7 +8,7 @@ libraries:
   - new_theme/global-styling
 regions:
   header: 'Header'
-  hero: 'Hero Section'
+  slider: 'Slider'
   content: 'Content'
   footer: 'Footer'
   
