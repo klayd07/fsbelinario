@@ -1,0 +1,11 @@
+<div class="services-section">
+  <h2>Services</h2>
+  <div class="services-grid">
+    {% for row in rows %}
+      <div class="service-card">
+        <h3>{{ row.content['#view'].field_title[0]['#markup'] }}</h3>
+        <p>{{ row.content['#view'].field_body[0]['#markup'] }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>

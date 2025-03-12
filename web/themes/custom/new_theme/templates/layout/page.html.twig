@@ -19,23 +19,16 @@
     </div>
   </header>
 
-  <main>
-    {% if page.hero %}
-  <section class="hero">
-    {{ page.hero|raw }} {# Background image will be added via a block #}
-    <div class="hero-content">
-      <h1>GET STARTED WORK WITH US</h1>
-      <p>Your trusted partner in accounting and financial services.</p>
-      <a href="#" class="btn">Get Started</a>
+  {% if page.slider %}
+    <div id="slider" class="hero">
+      {{ page.slider }}
     </div>
-  </section>
-{% endif %}
+  {% endif %}
 
-
-    <div class="content">
-      {{ page.content }}
-    </div>
+  <main class="content">
+    {{ page.content }}
   </main>
+
 
   <footer>
     {% if page.footer %}

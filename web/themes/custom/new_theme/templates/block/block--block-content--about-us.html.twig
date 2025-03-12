@@ -1,0 +1,11 @@
+{# Get the background image dynamically #}
+{% set background_image = content.field_about_us_background.0['#item'].entity.uri.value|file_url %}
+
+<div class="about-us-section" style="background-image: url('{{ background_image }}');">
+    <div class="about-us-content">
+        <h2 class="block__title">{{ label }}</h2>
+        <div class="text-content">
+            {{ content.body }}
+        </div>
+    </div>
+</div>

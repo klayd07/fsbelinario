@@ -64,7 +64,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
+}s
 
 .hero .region--hero {
   display: none; /* Hide the inline image block since we're using CSS for the background */
@@ -99,43 +99,31 @@
   border-radius: 5px;
 }
 
-.about-section {
+/* Ensure mission and vision are in a single column with two rows */
+.mission-vision-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column; /* Ensures one column layout */
+  gap: 20px; /* Adds spacing between mission and vision */
+  max-width: 800px; /* Optional: Adjust width */
+  margin: 0 auto; /* Center align */
 }
 
-.about-content {
-  width: 50%;
-}
-
-.about-features {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-
-.about-features .views-row {
+/* Individual styling for each section */
+.mission, .vision {
   padding: 20px;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.about-features .views-row:nth-child(1) { background-color: #d93025; } /* Red */
-.about-features .views-row:nth-child(2) { background-color: #1e88e5; } /* Blue */
-.about-features .views-row:nth-child(3) { background-color: #212529; } /* Dark */
-.about-features .views-row:nth-child(4) { background-color: #17a2b8; } /* Teal */
-
-.read-more {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #8a2be2;
-  color: white;
-  text-decoration: none;
+  background-color: #730277; /* Light background */
   border-radius: 5px;
+}
+
+/* Improve heading styling */
+.mission h2, .vision h2 {
+  color: white;
   font-weight: bold;
 }
 
+/* Improve text readability */
+.mission p, .vision p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: white;
+}
