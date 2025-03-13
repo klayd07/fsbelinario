@@ -59,3 +59,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Auto-slide every 3 seconds (optional)
   setInterval(nextSlide, 10000);
+  

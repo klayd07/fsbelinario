@@ -14,3 +14,12 @@
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent background repetition */
 }
+#header,
+#slider,
+#content,
+#footer {
+    width: 100vw; /* Set width to full viewport width */
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Adjust padding if needed */
+    box-sizing: border-box; /* Ensure padding and borders are included in width */
+}

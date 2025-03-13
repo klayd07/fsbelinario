@@ -1,0 +1,82 @@
+<div class="bg-white py-12 px-6">
+    <!-- Heading with line -->
+    <h2 class="text-3xl font-bold text-[#AD0AFF] mb-2 text-center">Fields We Serve</h2>
+    <hr class="border-t-2 border-[#AD0AFF] my-4 mx-auto w-3/4">
+
+    <!-- First Section -->
+    <div id="section1" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto mt-10">
+        {% set total_items = content['#view'].result|length %}
+        {% set items_per_page = 4 %}
+        {% for i in 0..(total_items - 1) %}
+            <div class="flex flex-col items-center text-center serve-item" {% if i >= items_per_page %}style="display: none;"{% endif %}>
+                {% set row = content['#view'].result[i] %}
+                {% if row._entity.get('field_serve_image').entity.uri.value is not empty %}
+                    <img src="{{ file_url(row._entity.get('field_serve_image').entity.uri.value) }}" 
+                         alt="Start-ups Icon" 
+                         class="w-20 h-20 mb-4 object-cover">
+                {% endif %}
+                <h3 class="text-2xl font-bold text-purple-700 mb-3">
+                    {{ row._entity.get('info').value }}
+                </h3>
+                <p class="text-base text-gray-600 leading-relaxed text-justify">
+                    {{ row._entity.get('body').value|raw }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="flex space-x-3 mt-10 pb-10 justify-center w-full">
+        {% set total_pages = (total_items / items_per_page)|round(0, 'ceil') %}
+        {% for i in 0..(total_pages - 1) %}
+            <button class="pagination-dot w-4 h-4 rounded-full bg-gray-400 {% if i == 0 %}bg-purple-600{% endif %}" 
+                    data-page="{{ i }}"></button>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- JavaScript for Dot-Based Pagination -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const items = document.querySelectorAll('.serve-item');
+        const dots = document.querySelectorAll('.pagination-dot');
+        const itemsPerPage = 4;
+        let currentPage = 0;
+
+        function updateItems() {
+            // Hide all items
+            items.forEach(item => item.style.display = 'none');
+
+            // Calculate start and end index based on currentPage
+            let start = currentPage * itemsPerPage;
+            let end = start + itemsPerPage;
+
+            // Show only the current set of items
+            for (let i = start; i < end && i < items.length; i++) {
+                items[i].style.display = 'flex';
+            }
+
+            // Update active dot
+            dots.forEach((dot, index) => {
+                if (index === currentPage) {
+                    dot.classList.add('bg-purple-600');
+                    dot.classList.remove('bg-gray-400');
+                } else {
+                    dot.classList.add('bg-gray-400');
+                    dot.classList.remove('bg-purple-600');
+                }
+            });
+        }
+
+        // Add click event to each dot
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentPage = index;
+                updateItems();
+            });
+        });
+
+        // Initial load
+        updateItems();
+    });
+</script>

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <header class="site-header">
+  <header id="header" class="site-header container-fluid w-full">
     <div class="header-container">
         {% if page.header %}
             {{ page.header }}
@@ -18,16 +18,16 @@
   </header>
 
     {% if page.slider %}
-      <div id="slider" class="region-slider">
+      <div id="slider"  class="region-slider container-fluid w-full">
         {{ page.slider }}
       </div>
     {% endif %}
 
-    <div class="content bg-white">
+    <div id="content" class="w-full max-w-full px-0"> 
       {{ page.content }}
     </div>
 
-  <footer>
+  <footer id="footer" class="container-fluid w-full">
     {% if page.footer %}
       {{ page.footer }}
     {% endif %}

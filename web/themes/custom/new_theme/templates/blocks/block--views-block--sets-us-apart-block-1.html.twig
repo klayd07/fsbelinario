@@ -1,0 +1,80 @@
+<div class="bg-purple-800 py-16 px-6">
+  <!-- Heading -->
+  <h2 class="text-4xl font-bold text-white mb-6 text-left">What Sets Us Apart</h2>
+  <div class="h-1 bg-white mx-20 mb-12"></div>
+
+  <!-- Slider Container -->
+  <div id="whatSetsUsApartSlider" class="overflow-hidden relative max-w-7xl mx-auto">
+    <div id="whatSetsUsApartWrapper" class="flex transition-transform duration-500">
+      {% set total_items = content['#view'].result|length %}
+      {% set items_per_slide = 3 %}
+      {% set total_slides = (total_items / items_per_slide)|round(0, 'ceil') %}
+
+      {% for i in 0..(total_slides - 1) %}
+        <div class="min-w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+          {% for j in 0..(items_per_slide - 1) %}
+            {% set index = i * items_per_slide + j %}
+            {% if index < total_items %}
+              {% set row = content['#view'].result[index] %}
+              {% if row._entity.get('field_image_set_a_part').entity.uri.value is not empty %}
+                <!-- Card -->
+                <div class="bg-white rounded-2xl shadow-md flex flex-col min-h-[600px] overflow-hidden">
+                  <div class="w-full h-52">
+                    <img src="{{ file_url(row._entity.get('field_image_set_a_part').entity.uri.value) }}" 
+                         alt="Expertise and Experience" 
+                         class="w-full h-full object-cover">
+                  </div>
+                  <div class="p-8 flex flex-col flex-1">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4 text-center">
+                      {{ row._entity.get('info').value }}
+                    </h3>
+                    <p class="text-lg text-gray-600 leading-relaxed text-justify">
+                      {{ row._entity.get('body').value|raw }}
+                    </p>
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="flex justify-center mt-10 space-x-2">
+    {% for i in 0..(total_slides - 1) %}
+      <button class="dot w-4 h-4 rounded-full {% if i == 0 %}bg-purple-900{% else %}bg-gray-300{% endif %}" 
+              onclick="goToSlide({{ i }})"></button>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- JavaScript for Slide Transition -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sliderWrapper = document.getElementById('whatSetsUsApartWrapper');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = {{ total_slides }};
+    let currentSlide = 0;
+
+    // Make goToSlide global by assigning it to the window object
+    window.goToSlide = function(slideIndex) {
+        if (slideIndex >= 0 && slideIndex < totalSlides) {
+            currentSlide = slideIndex;
+            const offset = -currentSlide * 100;
+            sliderWrapper.style.transform = `translateX(${offset}%)`;
+
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('bg-purple-900', index === currentSlide);
+                dot.classList.toggle('bg-gray-300', index !== currentSlide);
+            });
+        }
+    };
+
+    // Initial load
+    goToSlide(0);
+});
+
+</script>

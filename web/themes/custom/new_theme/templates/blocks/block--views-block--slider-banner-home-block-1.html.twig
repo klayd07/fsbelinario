@@ -1,0 +1,46 @@
+<div class="relative w-full h-[70vh] overflow-hidden">
+  <!-- Carousel Wrapper -->
+  <div id="carousel" class="flex h-full transition-transform duration-500 ease-in-out">
+    {% for row in content['#view'].result %}
+      <div class="group w-1/4 h-full flex-shrink-0 relative transition-transform duration-500 ease-in-out 
+                  hover:z-20 hover:scale-105">
+        {% if row._entity.get('field_images_carousel').entity.uri.value is not empty %}
+          <img src="{{ file_url(row._entity.get('field_images_carousel').entity.uri.value) }}" 
+               class="w-full h-full object-cover transition-transform duration-500 ease-in-out" />
+        {% endif %}
+
+        <!-- Hover Overlay Text (for each slide) -->
+        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
+          <span class="text-white text-xl font-bold drop-shadow-md">
+            {{ row._entity.get('field_labels').value }}
+          </span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Always Visible Overlay (Applied to All Images) -->
+  <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-start justify-center px-12 
+              z-40 pointer-events-none">
+    <h2 class="text-white text-4xl font-bold mb-4">
+      Get Started Work With Us
+    </h2>
+    <button class="bg-purple-700 text-white px-6 py-2 rounded-md text-lg font-semibold 
+                   hover:bg-purple-800 transition pointer-events-auto">
+      Get Started
+    </button>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button onclick="prevSlide()" 
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 text-purple-800 text-4xl 
+                 hover:scale-110 transition z-50">
+    ❮
+  </button>
+  <button onclick="nextSlide()" 
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 text-purple-800 text-4xl 
+                 hover:scale-110 transition z-50">
+    ❯
+  </button>
+</div>
