@@ -1,0 +1,50 @@
+<div class=" z-20  px-6 bg-white">
+        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div class="flex flex-col lg:flex-row items-center justify-between w-full mb-10">
+                <!-- Image beside the text, but outside of the box -->
+                {% for row in content['#view'].result %}
+                    {% if row._entity.get('field_audit_firms_table').entity.uri.value is not empty %}
+                        <div class="relative lg:mr-[-80px] z-10">
+                        <img class="w-[600px] h-auto rounded-lg shadow-lg" 
+                            alt="{{ row._entity.get('field_audit_firms_table').alt.value }}" 
+                            src="{{ file_url(row._entity.get('field_audit_firms_table').entity.uri.value) }}">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <!-- Text content -->
+                <div class="mb-16 lg:mb-0 lg:max-w-lg lg:pl-5">
+                    <!-- Circle Container -->
+                    <div class="flex flex-col items-center space-y-10 mb-10 w-full">
+                        <!-- Top Row (3 Circles) -->
+                        <div class="flex justify-center space-x-20 w-full">
+                        {% for row in content['#view'].result %}
+                            {% set images = row._entity.get('field_profiles_image') %}
+                            {% if images is not empty %}
+                            {% for image in images %}
+                                <div class="w-20 h-20 shadow-lg rounded-full overflow-hidden">
+                                <img src="{{ file_url(image.entity.uri.value) }}"
+                                    alt="{{ image.entity.alt.value|default('Profile Image') }}"
+                                    class="w-full h-full object-cover">
+                                </div>
+                            {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+{% set displayed = false %}
+{% for row in content['#view'].result %}
+  {% if row._entity.get('body').value is not empty and not displayed %}
+    <!-- Text Content -->
+    <div class="max-w-xl mx-auto text-center">
+      <p class="text-laravel text-base text-justify md:text-lg">
+        {{ row._entity.get('body').value|raw }}
+      </p>
+    </div>
+    {% set displayed = true %}
+  {% endif %}
+{% endfor %}
+
+
+               
+            </div>
+        </div>
+    </div>
