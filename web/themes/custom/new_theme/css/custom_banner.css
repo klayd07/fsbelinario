@@ -1,0 +1,21 @@
+.region {
+    width: 100%; /* Full width */
+    max-width: none; /* Remove any default max-width */
+    padding-left: 1rem; /* Similar to Bootstrap's padding */
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .region {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .region {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  

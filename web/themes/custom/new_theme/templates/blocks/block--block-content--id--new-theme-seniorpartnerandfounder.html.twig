@@ -1,0 +1,27 @@
+<section class="bg-white py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Title -->
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-purple-800 mb-10">
+      Senior Partner And Founder
+    </h2>
+
+    <!-- Image and First Paragraph -->
+    <div class="flex flex-col md:flex-row items-center gap-8 mb-8 flex-wrap">
+
+      {% if content.field_profile_image[0] is not empty %}
+        {% set image_uri = content.field_profile_image[0]['#item'].entity.uri.value %}
+        <div class="flex-shrink-0 self-center mx-auto"> <!-- CENTER THIS IMAGE -->
+          <img src="{{ file_url(image_uri) }}" alt="Founder Photo" 
+               class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-purple-800 shadow-lg">
+        </div>
+      {% endif %}
+
+      <!-- First Paragraph -->
+      <div class="text-sm leading-relaxed text-gray-700 text-justify">
+        {{ content.body }}
+      </div>
+
+    </div>
+  </div>
+</section>

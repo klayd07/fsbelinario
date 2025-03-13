@@ -29,4 +29,33 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
   })(jQuery, Drupal);
-  
+  const carousel = document.getElementById('carousel');
+  const slideWidth = carousel.children[0].offsetWidth;
+  const visibleSlides = 4;
+  let currentIndex = 0;
+
+  function nextSlide() {
+    if (currentIndex < carousel.children.length - visibleSlides) {
+      currentIndex++;
+    } else {
+      currentIndex = 0;
+    }
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = carousel.children.length - visibleSlides;
+    }
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    const offset = -(slideWidth * currentIndex);
+    carousel.style.transform = `translateX(${offset}px)`;
+  }
+
+  // Auto-slide every 3 seconds (optional)
+  setInterval(nextSlide, 10000);

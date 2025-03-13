@@ -1,0 +1,43 @@
+
+<div class="relative w-full  text-white">
+        <!-- Background Image with Purple Overlay -->
+        <div class="absolute inset-0">
+            {% for row in content['#view'].result %}
+                    {% if row._entity.get('field_background_image_for_about').entity.uri.value is not empty %}
+                        <img class="absolute inset-0 w-full h-full object-cover"
+                            alt="{{ row._entity.get('field_background_image_for_about').alt.value }}" 
+                            src="{{ file_url(row._entity.get('field_background_image_for_about').entity.uri.value) }}">
+                    {% endif %}
+                {% endfor %}
+          <div class="absolute inset-0 bg-purple-800 opacity-70"></div>
+        </div>
+      
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col md:flex-row items-center md:items-stretch max-w-7xl mx-auto px-6 py-10 md:py-8 h-full space-y-6 md:space-y-0">
+      {% set row = content['#view'].result|first %}
+        {% if row %}
+        <!-- About Us Text -->
+                <div class="w-full md:w-1/2 flex flex-col justify-center space-y-4 text-center md:text-left">
+                    <h2 class="text-3xl text-white md:text-4xl font-bold">{{ row._entity.get('info').value }}</h2>
+                    <p class="text-base md:text-xl leading-relaxed text-justify">
+                    {{ row._entity.get('body').value|raw }}
+                    </p>
+                </div>
+        {% endif %}
+         
+      
+          <!-- Features -->
+          <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+            {% for row in content['#view'].result %}
+                    <div class="flex flex-col items-center text-center space-y-2">
+                        {% if row._entity.get('field_icons_images').entity.uri.value is not empty %}
+                        <img class="w-14 h-14"
+                            alt="{{ row._entity.get('field_icons_images').alt.value }}" 
+                            src="{{ file_url(row._entity.get('field_icons_images').entity.uri.value) }}">
+                    {% endif %}
+                         <span class="text-sm md:text-lg font-medium">{{ row._entity.get('field_about_us_titles').value }}</span>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<section class="bg-white py-12">
+        <div class="max-w-7xl mx-auto bg-purple-100 rounded-xl shadow-md p-6 md:p-10 flex flex-col md:flex-row md:items-center md:gap-10">
+      
+          <!-- Text Content -->
+          <div class="w-full md:w-[60%] text-gray-800 text-sm md:text-base leading-relaxed text-justify px-10">
+            <h2 class="text-2xl font-bold text-purple-800 mb-4">Partner</h2>
+            <p>
+             {{content.body}}
+            </p>
+          </div>
+      {% if content.field_profile_image[0] is not empty %}
+        {% set image_uri = content.field_profile_image[0]['#item'].entity.uri.value %}
+        <div class="w-full md:w-[40%] mt-8 md:mt-0 flex justify-center px-10">
+            <img src="{{ file_url(image_uri) }}" alt="Partner Photo" class="w-95 h-60 ">
+          </div>
+      {% endif %}
+        </div>
+      </section>

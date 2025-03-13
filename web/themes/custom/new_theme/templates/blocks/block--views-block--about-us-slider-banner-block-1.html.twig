@@ -1,0 +1,29 @@
+<div class="relative w-full h-[70vh] overflow-hidden">
+  <!-- Carousel Wrapper -->
+  <div id="carousel" class="flex h-full transition-transform duration-500 ease-in-out">
+    {% for row in content['#view'].result %}
+      <div class="group w-1/4 h-full flex-shrink-0 relative">
+        {% if row._entity.get('field_image_sliders').entity.uri.value is not empty %}
+          <img src="{{ file_url(row._entity.get('field_image_sliders').entity.uri.value) }}" class="w-full h-full object-cover" />
+        {% endif %}
+        
+        <!-- Centered Text -->
+        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span class="text-white text-xl font-bold drop-shadow-md">
+            {{ row._entity.get('field_slider_texts').value }}
+          </span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button onclick="prevSlide()" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-purple-800 text-4xl hover:scale-110 transition">
+    ❮
+  </button>
+  <button onclick="nextSlide()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-purple-800 text-4xl hover:scale-110 transition">
+    ❯
+  </button>
+</div>
+
+
