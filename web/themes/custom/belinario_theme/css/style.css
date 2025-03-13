@@ -1,0 +1,6 @@
+.field-content img {
+    width: 100%; /* Make it responsive to container width */
+    height: 400px; /* Set a fixed height for a banner size */
+    object-fit: cover; /* Ensure the image scales and crops properly */
+  }
+  

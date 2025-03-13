@@ -14,4 +14,19 @@ document.addEventListener("DOMContentLoaded", function () {
   
     setInterval(nextSlide, 3000);
   });
+  (function ($, Drupal) {
+    Drupal.behaviors.heroSlider = {
+      attach: function (context, settings) {
+        if (typeof $.fn.cycle !== 'undefined') {
+          $('.hero-slider', context).once('hero-slider').cycle({
+            fx: 'fade',
+            timeout: 5000,
+            pause: true
+          });
+        } else {
+          console.error('jQuery Cycle plugin is not loaded.');
+        }
+      }
+    };
+  })(jQuery, Drupal);
   

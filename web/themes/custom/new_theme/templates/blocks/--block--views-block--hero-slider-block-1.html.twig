@@ -1,0 +1,35 @@
+<div class="hero-slider">
+    {{ dump(rows) }}
+{{ dump(view) }}
+
+  {% for row in rows %}
+  {{ dump(row.fields) }}
+{{ dump(view) }}
+
+    <div class="hero-slide" style="background-image: url('{{ row.fields_Background_image.content }}');">
+      <div class="hero-content">
+        <h2>{{ row.fields.title.content }}</h2>
+        <p>{{ row.fields.body.content }}</p>
+        <a href="{{ row.fields.link.content }}" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="hero-icons">
+        <div class="hero-icon">
+          <i class="fas fa-handshake"></i>
+          <span>Integrity</span>
+        </div>
+        <div class="hero-icon">
+          <i class="fas fa-award"></i>
+          <span>Excellence</span>
+        </div>
+        <div class="hero-icon">
+          <i class="fas fa-users"></i>
+          <span>Client Focus</span>
+        </div>
+        <div class="hero-icon">
+          <i class="fas fa-balance-scale"></i>
+          <span>Accountability</span>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

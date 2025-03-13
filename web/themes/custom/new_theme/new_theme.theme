@@ -1,7 +1,8 @@
 <?php
 use Drupal\webform\Entity\Webform;
 
-function new_theme_preprocess_node(&$variables) {
+function new_theme_preprocess_node(&$variables)
+{
   $webform_id = 'contact_us';
   $webform = Webform::load($webform_id);
 

@@ -3,12 +3,18 @@ global-styling:
   css:
     theme:
       css/style.css: {}
-      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css: {}
-      https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css: {}
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css:
+        {}
+      https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css:
+        {}
   js:
+    js/jquery.min.js: {}
+    js/jquery.cycle.all.js: {}
     js/script.js: {}
+    https://malsup.github.io/jquery.cycle.all.js: {}
     https://cdn.tailwindcss.com: {}
-    https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js:
+      {}
   dependencies:
     - core/jquery
     - core/drupal

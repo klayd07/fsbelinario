@@ -88,7 +88,7 @@
  * ];
  * @endcode
  */
-$databases['default']['default'] = array (
+$databases['default']['default'] = array(
   'database' => 'belinario_db',
   'username' => 'root',
   'password' => '',
@@ -903,7 +903,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$databases['default']['default'] = array (
+$databases['default']['default'] = array(
   'database' => 'belinario_db',
   'username' => 'root',
   'password' => '',
@@ -916,3 +916,7 @@ $databases['default']['default'] = array (
   'autoload' => 'core/modules/mysql\\src\\Driver\\Database\\mysql\\',
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_8X0w6Ue244AzoHxHLB6iC75TN1CWwuKhsEo05e53IlzUEzWhV7JHB8zelTxxAPqSgB9vmA373A/sync';
+$config['system.logging']['error_level'] = 'verbose'; // Show all error messages
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+error_reporting(E_ALL);

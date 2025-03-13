@@ -1,0 +1,28 @@
+<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-12">
+{% set row = content['#view'].result|first %}
+{% if row %}
+  <div class="md:w-1/2">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">
+      {{ row._entity.get('info').value }}
+    </h2>
+    <p class="text-lg text-gray-600 leading-relaxed mb-8 text-justify">
+      {{ row._entity.get('body').value|raw }}
+    </p>
+    <a href="/about-us" class="bg-purple-600 text-white text-lg font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-purple-700 transition">
+      Read More
+    </a>
+  </div>
+{% endif %}
+
+  <div class="grid grid-cols-2 gap-6 w-full md:w-1/2">
+  {% set colors = ['bg-red-600','bg-red-600', 'bg-sky-500', 'bg-gray-800', 'bg-teal-500'] %}
+  {% for row in content['#view'].result %}
+    {% if row._entity.get('field_about_us_title').value is not empty %}
+      <!-- Feature Boxes -->
+        <div class="{{ colors[loop.index0 % colors|length] }} text-white text-center text-xl font-semibold py-10 px-4 rounded-xl shadow-md">
+          {{ row._entity.get('field_about_us_title').value|raw }}
+        </div>
+    {% endif %}
+  {% endfor %}
+  </div>
+</div>
