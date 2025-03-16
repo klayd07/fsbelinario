@@ -1,0 +1,38 @@
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+
+        <!-- Logo and Text -->
+        <div class="flex items-center space-x-3">
+            <a href="{{ path('<front>') }}">
+                <img src="{{ directory }}/images/fsblogo.png" alt="Logo" class="h-16">
+            </a>
+            <div class="flex flex-col text-left"> <!-- Added text-left class here -->
+                <span class="text-lg font-bold text-[#4F2D7F]">FELOMINO S. BELINARIO</span>
+                <span class="text-lg font-bold text-[#4F2D7F]">& ASSOCIATES</span>
+            </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-6 text-[18px]">
+            {% for item in items %}
+                <a href="{{ item.url }}" class="{{ item.in_active_trail ? 'text-red-600 underline font-bold' : 'text-[#4F2D7F] hover:underline hover:text-red-600 font-bold' }}">
+                    {{ item.title }}
+                </a>
+            {% endfor %}
+        </div>
+
+        <!-- Hamburger Button -->
+        <button id="menu-btn" class="block md:hidden text-[#4F2D7F] text-3xl">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+        {% for item in items %}
+            <a href="{{ item.url }}" class="{{ item.in_active_trail ? 'text-red-600 bg-gray-100 font-semibold block px-6 py-2' : 'block px-6 py-2 text-[#4F2D7F] hover:bg-gray-100' }}">
+                {{ item.title }}
+            </a>
+        {% endfor %}
+    </div>
+</nav>

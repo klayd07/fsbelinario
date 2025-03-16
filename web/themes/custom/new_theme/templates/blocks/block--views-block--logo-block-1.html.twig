@@ -1,0 +1,25 @@
+<div class="header-container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+        {% if content.field_logo_image[0] is not empty %}
+         {% set image_uri = content.field_bg[0]['#item'].entity.uri.value %}
+        <img src="{{ file_url(image_uri) }}" class="absolute inset-0 w-full h-full object-cover brightness-110 contrast-110">
+        {% endif %}
+        <div class="firm-name">
+            FELONIMO S. BELINARIO<br>& ASSOCIATES
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="primary-nav">
+        <ul class="menu">
+            {% for item in items %}
+                <li class="menu__item">
+                    <a href="{{ item.url }}" class="{% if item.in_active_trail %}is-active{% endif %}">
+                        {{ item.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>

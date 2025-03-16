@@ -1,4 +1,4 @@
-<div class=" bg-white relative overflow-hidden">
+<div class="bg-white relative overflow-hidden">
   <!-- Services Heading -->
   <h4 class="text-3xl font-bold text-purple-900 text-center md:text-left px-6 md:px-10">
     Services
@@ -8,26 +8,66 @@
   <div id="services-slider" class="w-full pt-10 flex flex-col items-center md:items-start px-6 md:px-8 relative overflow-hidden">
     
     <!-- Slide Container -->
-    <div id="slides" class="flex  transition-transform duration-500 ease-in-out w-full" style="transform: translateX(0%);">
+    <div id="slides" class="flex transition-transform duration-500 ease-in-out w-full relative" style="overflow: hidden; width: 100%;">
+      {% set items_per_page = 4 %}
+      {% set total_items = content['#view'].result|length %}
+      {% set total_pages = (total_items / items_per_page)|round(0, 'ceil') %}
 
-      <!-- Section 1 -->
-      <div class="grid grid-cols-1 pl-10 pr-10 sm:grid-cols-2 gap-8 w-full flex-shrink-0">
-        <!-- Box 1 -->
-    {% for row in content['#view'].result %}
-        <div class="bg-[#4F2D7F] text-white px-8 py-8 rounded-lg shadow-lg">
-          <h3 class="text-2xl font-bold text-white">{{ row._entity.get('info').value }}</h3>
-          <p class="text-justify text-base mt-4 ">
-            {{ row._entity.get('body').value|raw }}
-          </p>
-        </div>
-    {% endfor %}
+      <div id="slides-container" class="flex w-full transition-transform duration-500 ease-in-out">
+        {% for page in range(0, total_pages - 1) %}
+          <div class="grid grid-cols-1 pl-10 pr-10 sm:grid-cols-2 gap-8 w-full flex-shrink-0 service-page">
+            {% for i in range(page * items_per_page, (page + 1) * items_per_page - 1) %}
+              {% if content['#view'].result[i] is defined %}
+                {% set row = content['#view'].result[i] %}
+                <div class="bg-[#4F2D7F] text-white px-8 py-8 rounded-lg shadow-lg">
+                  <h3 class="text-2xl font-bold text-white">{{ row._entity.get('info').value }}</h3>
+                  <p class="text-justify text-base mt-4">
+                    {{ row._entity.get('body').value|raw }}
+                  </p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
       </div>
     </div>
+
     <!-- Pagination Dots -->
     <div class="flex space-x-3 mt-10 pb-10 justify-center w-full">
-      <button id="dot1" class="w-4 h-4 rounded-full bg-blue-600"></button>
-      <button id="dot2" class="w-4 h-4 rounded-full bg-gray-400 hover:bg-blue-600"></button>
+      {% for i in 0..(total_pages - 1) %}
+        <button class="pagination-dot w-4 h-4 rounded-full bg-gray-400 {% if i == 0 %}bg-purple-600{% endif %}" 
+                data-page="{{ i }}"></button>
+      {% endfor %}
     </div>
 
   </div>
 </div>
+
+<!-- JavaScript for Smooth Sliding Pagination -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const slidesContainer = document.getElementById("slides-container");
+    const pages = document.querySelectorAll(".service-page");
+    const dots = document.querySelectorAll(".pagination-dot");
+    const slideWidth = pages[0].offsetWidth; // Width of one page
+    let currentIndex = 0;
+
+    function goToPage(index) {
+      currentIndex = index;
+      const offset = -(slideWidth * currentIndex);
+      slidesContainer.style.transform = `translateX(${offset}px)`;
+
+      // Update active dot
+      dots.forEach(d => d.classList.remove("bg-purple-600"));
+      dots[currentIndex].classList.add("bg-purple-600");
+    }
+
+    // Click event for pagination dots
+    dots.forEach(dot => {
+      dot.addEventListener("click", function () {
+        let pageIndex = parseInt(this.getAttribute("data-page"));
+        goToPage(pageIndex);
+      });
+    });
+  });
+</script>

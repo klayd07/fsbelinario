@@ -1,0 +1,79 @@
+/* =========================== */
+/* Custom Webform Styles       */
+/* =========================== */
+
+/* General Styling */
+.custom-webform {
+    padding: 5px;
+  }
+  
+  /* Hide Labels */
+  .custom-webform label {
+    display: none;
+  }
+  
+  /* Form Inputs */
+  .custom-webform input[type="text"],
+  .custom-webform input[type="email"],
+  .custom-webform input[type="tel"],
+  .custom-webform textarea,
+  .custom-webform select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #a855f7; /* Match the purple color from the image */
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-shadow: none;
+    outline: none;
+  }
+  
+  /* Style Placeholders */
+  .custom-webform input::placeholder,
+  .custom-webform textarea::placeholder {
+    color: #a855f7; /* Match the purple color */
+    font-size: 16px;
+    opacity: 1; /* Ensure placeholders are visible */
+  }
+  
+  /* Focus Style */
+  .custom-webform input:focus,
+  .custom-webform textarea:focus {
+    border-color: #7c3aed;
+    outline: none;
+  }
+  
+  /* Textarea Styling */
+  .custom-webform textarea {
+    height: 150px;
+  }
+  
+  /* Submit Button */
+  .custom-webform input[type="submit"] {
+    background-color: #a855f7;
+    color: #fff;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .custom-webform input[type="submit"]:hover {
+    background-color: #7c3aed;
+  }
+  
+  /* Error Messages */
+  .custom-webform .form-error {
+    color: #d32f2f;
+    font-size: 14px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .custom-webform {
+      padding: 20px;
+    }
+  }
