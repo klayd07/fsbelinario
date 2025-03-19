@@ -5,6 +5,21 @@
   background-color: white !important;
 }
 
+.relative {
+  margin: 0;
+}
+
+.flex {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .md\:w-1\/2 {
+      padding: 10rem;
+      width: 50%;
+  }
+}
+
 .region--content {
   width: 100vw;
   max-width: 100%;

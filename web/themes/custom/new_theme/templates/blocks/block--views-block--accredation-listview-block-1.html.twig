@@ -1,13 +1,12 @@
- <div class=" inset-0 bg-purple-900 bg-opacity-70 flex justify-center items-center" >
-        <div class="grid grid-cols-4 gap-10 text-white text-center w-3/4">      
-            {% set colors = ['fab fa-algolia text-[#17a2b8]', 'fa-asymmetrik text-[#30c39e]', 'fab fas fa-bug text-[#fd5c63]', 'fas fa-check-square text-[#ffc168] '] %}
-                {% for row in content['#view'].result %}
-                    <div>
-                        <div class="text-4xl mb-2 {{ colors[loop.index0 % colors|length] }} "></div>
-                        <h3 class="font-bold text-lg text-white"> {{ row._entity.get('info').value }}</h3>
-                        <p class="text-sm"> {{ row._entity.get('body').value|raw }}</p>
-                    </div>
-                {% endfor %}
-                </div>
+<div class="h-[300px] inset-0 bg-purple-900 bg-opacity-70 flex justify-center items-center">
+    <div class="grid grid-cols-4 gap-10 text-white text-center w-3/4">      
+        {% set colors = ['fab fa-algolia text-[#17a2b8]', 'fa-asymmetrik text-[#30c39e]', 'fab fas fa-bug text-[#fd5c63]', 'fas fa-check-square text-[#ffc168] '] %}
+        {% for row in content['#view'].result %}
+            <div>
+                <div class="text-4xl mb-2 {{ colors[loop.index0 % colors|length] }} "></div>
+                <h3 class="font-bold text-lg text-white"> {{ row._entity.get('info').value }}</h3>
+                <p class="text-sm"> {{ row._entity.get('body').value|raw }}</p>
             </div>
-        </div>
+        {% endfor %}
+    </div>
+</div>
